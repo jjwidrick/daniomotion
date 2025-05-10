@@ -1,0 +1,44 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(patchwork)
+library(RcppRoll) 
+library(pracma)     
+library(data.table)
+library(kableExtra)
+library(daniomotion)
+
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning=FALSE, 
+                      message=FALSE, 
+                      fig.width=10, 
+                      fig.height=11,
+                      results='asis')
+```
+
+
+```{r}
+
+# -------------------------------------
+# DAQ ANALYSIS MODE
+# -------------------------------------
+
+# This is the mode you should choose when collecting videos and you want to immediately extract the coordinates output by your DeepLabCut (DLC) neural network and see the kinematic results.
+
+# Step 1: Place the DLC .csv file of coordinates in the same directory as this Rmd.
+# Step 2: Place your setting.txt file inf the same directory as this Rmd.
+# Step 3: Indicate whether you want plots of the results.
+# Step 4: Indicate whether you want to save the `pk_vl_save` data file.
+# Step 5: knit this Rmd, which will execute the following code:
+
+
+dm_DAQ_mode(plots      = TRUE, 
+            pk_vl_save = FALSE)
+ 
+```   
+
+

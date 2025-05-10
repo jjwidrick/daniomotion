@@ -1,0 +1,53 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(patchwork)
+library(RcppRoll) 
+library(pracma)     
+library(data.table)
+library(kableExtra)
+library(daniomotion)
+
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning=FALSE, 
+                      message=FALSE, 
+                      fig.width=10, 
+                      fig.height=11,
+                      results='asis')
+```
+
+
+```{r}
+
+# -------------------------------------
+# BATCH ANALYSIS MODE
+# -------------------------------------
+
+# This mode is used to analyze all of the DLC .csv files in a specified directory.
+
+# Step 1: For 'data_dir', specify the path to the directory holding your DLC .csv files.
+#   IMPORTANT: DLC .csv files can be the ONLY .csv files in this directory.
+#   IMPORTANT: ALL of the DLC .csv files in 'data_dir' MUST use the same settings.txt file.
+#   IMPORTANT: This setting.txt file must also be in the 'data_dir' directory.
+#   IMPORTANT: The setting.txt can be the ONLY .txt file in the 'data_dir' directory.
+
+# Step 2: Specify the path to the directory where you want the results sent ('results_dir'). 
+#   IMPORTANT: This directory must already exist.
+
+# Step 3: Indicate whether you want plots of the results. For a large batch of DLC .csv files, you may want to suppress plots to speed up analysis.
+
+# Step 4: Indicate whether you want to save the `pk_vl_save` data files.
+
+# Step 5: Run this RMD, which will execute the following code:
+
+dm_batch_mode(data_dir    = "./DLC_test_data/clutch01_day2", 
+              results_dir = "./DLC_test_results", 
+              plots       = FALSE,
+              pk_vl_save  = FALSE)
+
+```
+

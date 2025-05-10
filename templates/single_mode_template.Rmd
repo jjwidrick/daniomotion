@@ -1,0 +1,51 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(patchwork)
+library(RcppRoll) 
+library(pracma)     
+library(data.table)
+library(kableExtra)
+library(daniomotion)
+
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning=FALSE, 
+                      message=FALSE, 
+                      fig.width=10, 
+                      fig.height=11,
+                      results='asis')
+```
+
+
+```{r}
+
+# -------------------------------------
+# SINGLE ANALYSIS MODE
+# -------------------------------------
+
+# Use this mode to analyze a single DLC coordinate .csv file that was previously collected. 
+
+# If you are in the process of collecting data, it is better to choose the preceding chunk. This mode is usually used when re-analyzing a DLC .csv file. 
+
+# Note that the results of this analysis will be saved in your working directory.
+
+# Step 1: For 'data_dir', specify the directory holding your DLC .csv file.
+#         IMPORTANT: This setting.txt file must also be in the 'data_dir' directory.
+#         IMPORTANT: The setting.txt can be the ONLY .txt file in the 'data_dir' directory.
+# Step 2: Specify your 'video.ID.no'.
+# Step 3: Indicate whether you want plots of the results.
+# Step 4: Indicate whether you want to save the `pk_vl_save` data file.
+# Step 5: Run this RMD, which will execute the following code:
+
+dm_single_mode(data_dir    = "./DLC_test_data/clutch01_day2", 
+               video.ID.no = "01128", 
+               plots       = TRUE,
+               pk_vl_save  = FALSE)
+
+```
+
+
